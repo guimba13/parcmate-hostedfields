@@ -1,0 +1,48 @@
+/* app css stylesheet */
+
+.menu {
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
+}
+
+.menu:before {
+    content: "[";
+}
+
+.menu:after {
+    content: "]";
+}
+
+.menu > li {
+    display: inline;
+}
+
+.menu > li:before {
+    content: "|";
+    padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+    content: "";
+    padding: 0;
+}
+
+#card-number {
+    border: 2px inset;
+    height: 26px;
+    width: 200px;
+}
+
+#cvv {
+    border: 2px inset;
+    height: 26px;
+    width: 50px;
+}
+
+#expiration-date{
+    border: 2px inset;
+    height: 26px;
+    width: 60px;
+}

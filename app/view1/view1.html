@@ -1,0 +1,32 @@
+<div style="margin: 0 30px">
+    <h3>Checkout</h3>
+
+    <form id="f1" action="/checkout">
+        <div>
+            <label for="amount">Value: </label><input id="amount" type="text" ng-model='v1Ctrl.amount'/>
+        </div>
+
+        <!-- here goes the hosted fields -->
+        <div>
+            <label for="card-number">Card Number</label>
+
+            <div id="card-number"></div>
+        </div>
+
+        <div>
+            <label for="cvv">CVV</label>
+
+            <div id="cvv"></div>
+        </div>
+
+        <div>
+            <label for="expiration-date">Expiration Date</label>
+
+            <div id="expiration-date"></div>
+        </div>
+
+        <input type="submit" value="Pay"/>
+        <div id="paypal" />
+    </form>
+
+</div>
