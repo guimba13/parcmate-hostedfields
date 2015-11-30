@@ -1,6 +1,77 @@
-<div style="margin: 0 30px">
-  <h3>Paypal Checkout</h3>
-  <form id="f2"  action="/checkout">
-  </form>
+<div style="width: 100%">
+    <div class="col-md-6">
+        <div class="colunas">
+
+            <h2>Sale</h2>
+
+            <form class="customer_form" id="f2">
+                <ul>
+                    <li>
+                        <span>Insert sale data</span>
+                    </li>
+
+                    <!--<li style="width: 393px; cursor: hand;">-->
+                        <!--<a ng-click="v1Ctrl.edit()"><span>Use last created customer</span></a>-->
+                    <!--</li>-->
+
+
+                    <li>
+                        <label for="amount">Value: </label>
+                        <input id="amount" type="text"
+                               ng-model='v2Ctrl.sale.amount' ng-currency />
+                    </li>
+                    <li>
+                        <label for="customerId">Customer Id </label>
+                        <input id="customerId" type="text"
+                               ng-model='v2Ctrl.sale.ccId'/>
+                    </li>
+                    <li>
+                        <label for="garageId">Garage Id: </label>
+                        <input id="garageId" type="text" ng-model='v2Ctrl.sale.garageId'/>
+                    </li>
+
+                    <li style="width: 393px;">
+                        <button ng-click="v2Ctrl.performSale()">Perform sale!</button>
+                    </li>
+                </ul>
+                <!-- here goes the hosted fields -->
+            </form>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+        <div class="colunas">
+            <h2>Sale response</h2>
+
+            <div class="customer_form">
+                <ul>
+                    <li>
+                        <span>Response:</span>
+                    </li>
+                    <li>
+                        <div class="col-md-6">
+                            <label for="status">Status</label>
+
+                            <p id="status" class="responsefields">{{v2Ctrl.response.status}}</p>
+                            <label for="message">Message</label>
+
+                            <p id="message" class="responsefields">{{v2Ctrl.response.message}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ccId">Transaction ID</label>
+
+                            <p id="ccId" class="responsefields">{{v2Ctrl.response.ccId}}</p>
+                            <label for="paymentToken">Payment token</label>
+
+                            <p
+                                    id="paymentToken" class="responsefields">{{v2Ctrl.response.paymentToken}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- here goes the hosted fields -->
+        </div>
+    </div>
 
 </div>

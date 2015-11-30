@@ -1,32 +1,110 @@
-<div style="margin: 0 30px">
-    <h3>Checkout</h3>
+<div style="width: 100%">
+    <div class="col-md-6">
+        <div class="colunas">
 
-    <form id="f1" action="/checkout">
-        <div>
-            <label for="amount">Value: </label><input id="amount" type="text" ng-model='v1Ctrl.amount'/>
+            <h2>Create customer</h2>
+
+            <form class="customer_form" id="f1">
+                <ul>
+                    <li>
+                        <span>Insert cusomer information:</span>
+                    </li>
+                    
+                    <li style="width: 393px; cursor: hand;">
+                        <a ng-click="v1Ctrl.edit()"><span>Edit user</span></a>
+                    </li>
+
+                    <div ng-show="v1Ctrl.update" style="border: 1px solid #eee;position: relative;float: left;width: 396px;">
+                        <li style="border-bottom: 1px solid #eee !important; width: inherit !important;">
+                            <label for="id">Customer Id: </label><input id="id" type="text"
+                                                                        ng-model='v1Ctrl.customer.ccId'/>
+                        </li>
+                        <li>
+                            <label for="pToken">Payment Token: </label><input id="pToken" type="text"
+                                                                              ng-model='v1Ctrl.customer.paymentToken'/>
+                        </li>
+                    </div>
+
+                    <li>
+                        <label for="name">Name: </label><input id="name" type="text" ng-model='v1Ctrl.customer.name'/>
+                    </li>
+                    <li>
+                        <label for="street">Street address: </label><input id="street" type="text"
+                                                                           ng-model='v1Ctrl.customer.street'/>
+                    </li>
+                    <li>
+                        <label for="city">City: </label><input id="city" type="text" ng-model='v1Ctrl.customer.city'/>
+                    </li>
+                    <li>
+                        <label for="country">Country: </label><input id="country" type="text"
+                                                                     ng-model='v1Ctrl.customer.country'/>
+                    </li>
+                    <li>
+                        <label for="zipcode">Zip code: </label><input id="zipcode" type="text"
+                                                                      ng-model='v1Ctrl.customer.zipcode'/>
+                    </li>
+
+
+                    <!-- here goes the hosted fields -->
+                    <li>
+                        <label for="card-number">Card Number</label>
+
+                        <div id="card-number" class="hosted"></div>
+                    </li>
+
+                    <li>
+                        <label for="cvv">CVV</label>
+
+                        <div id="cvv" class="hosted"></div>
+                    </li>
+
+                    <li>
+                        <label for="expiration-date">Expiration Date</label>
+
+                        <div id="expiration-date" class="hosted"></div>
+                    </li>
+                    <li style="width: 393px;">
+                        <button type="submit">Save customer</button>
+                    </li>
+                </ul>
+                <!-- here goes the hosted fields -->
+            </form>
         </div>
 
-        <!-- here goes the hosted fields -->
-        <div>
-            <label for="card-number">Card Number</label>
+    </div>
 
-            <div id="card-number"></div>
+    <div class="col-md-6">
+        <div class="colunas">
+            <h2>Customer response</h2>
+
+            <div class="customer_form">
+                <ul>
+                    <li>
+                        <span>Response:</span>
+                    </li>
+                    <li>
+                        <div class="col-md-6">
+                            <label for="status">Status</label>
+
+                            <p id="status" class="responsefields">{{v1Ctrl.response.status}}</p>
+                            <label for="message">Message</label>
+
+                            <p id="message" class="responsefields">{{v1Ctrl.response.message}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ccId">Customer ID</label>
+
+                            <p id="ccId" class="responsefields">{{v1Ctrl.response.ccId}}</p>
+                            <label for="paymentToken">Payment token</label>
+
+                            <p
+                                    id="paymentToken" class="responsefields">{{v1Ctrl.response.paymentToken}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- here goes the hosted fields -->
         </div>
-
-        <div>
-            <label for="cvv">CVV</label>
-
-            <div id="cvv"></div>
-        </div>
-
-        <div>
-            <label for="expiration-date">Expiration Date</label>
-
-            <div id="expiration-date"></div>
-        </div>
-
-        <input type="submit" value="Pay"/>
-        <div id="paypal" />
-    </form>
+    </div>
 
 </div>
