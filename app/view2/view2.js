@@ -1,5 +1,4 @@
 'use strict';
-var server = "http://localhost:9010/";
 angular.module('myApp.view2', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {

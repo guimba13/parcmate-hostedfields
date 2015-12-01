@@ -1,6 +1,5 @@
 'use strict';
 
-var server = "http://localhost:9010/";
 var ctrl;
 var http;
 
