@@ -10,19 +10,30 @@ angular.module('myApp.view1', ['ngRoute'])
         $routeProvider.when('/view1', {
             templateUrl: 'view1/view1.html',
             controller: 'View1Ctrl',
-            controllerAs: "v1Ctrl"
+            controllerAs: 'v1Ctrl'
         });
     }])
 
-    .controller('View1Ctrl', ['$http','$rootScope', function ($http, $rootScope) {
+    .controller('View1Ctrl', ['$http', '$rootScope', function ($http, $rootScope) {
 
         ctrl = this;
         this.customer = {};
         this.response = {};
         this.update = false;
+        this.lastUser = false;
 
         var checkout;
         http = $http;
+
+        this.loadLast = function () {
+            if(ctrl.lastUser){
+                ctrl.customer.ccId = localStorage.getItem('id');
+                ctrl.customer.paymentToken = localStorage.getItem('token');
+            } else {
+                ctrl.customer.ccId = '';
+                ctrl.customer.paymentToken = '';
+            }
+        };
 
         this.edit = function () {
             ctrl.update = !ctrl.update;
@@ -34,12 +45,16 @@ angular.module('myApp.view1', ['ngRoute'])
             if (ctrl.update) {
                 http.post(server + 'customer/updateCustomer', ctrl.customer).success(function (response) {
                     ctrl.response = response;
+                    localStorage.setItem('id', response.ccId);
+                    localStorage.setItem('token', response.paymentToken);
                 }).error(function (error) {
                     ctrl.response = error;
                 });
             } else {
                 http.post(server + 'customer/addCustomer', ctrl.customer).success(function (response) {
                     ctrl.response = response;
+                    localStorage.setItem('id', response.ccId);
+                    localStorage.setItem('token', response.paymentToken);
                 }).error(function (error) {
                     ctrl.response = error;
                 });
@@ -54,7 +69,7 @@ angular.module('myApp.view1', ['ngRoute'])
                 }
             });
 
-            require(["braintree"], function (braintree) {
+            require(['braintree'], function (braintree) {
                 braintree.setup(response.clientToken, 'custom', {
                     onReady: function (integration) {
                         checkout = integration;
@@ -70,25 +85,25 @@ angular.module('myApp.view1', ['ngRoute'])
                         styles: {
                             // Style all elements
                             "input": {
-                                "font-size": "14px",
-                                "border": "1px solid #aaa",
-                                "border-radius": "2px",
-                                "height": "20px",
-                                "width": "220px"
+                                'font-size': '14px',
+                                'border': '1px solid #aaa',
+                                'border-radius': '2px',
+                                'height': '20px',
+                                'width': '220px'
                             },
 
                             // Styling a specific field
-                            ".number": {
-                                "height": "20px",
-                                "width": "220px"
+                            '.number': {
+                                'height': '20px',
+                                'width': '220px'
                             },
-                            ".cvv": {
-                                "height": "20px",
-                                "width": "220px"
+                            '.cvv': {
+                                'height': '20px',
+                                'width': '220px'
                             },
-                            ".expiration-date": {
-                                "height": "20px",
-                                "width": "220px"
+                            '.expiration-date': {
+                                'height': '20px',
+                                'width': '220px'
                             }
 
                             // Styling element state

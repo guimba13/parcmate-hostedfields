@@ -6,7 +6,8 @@
         'myApp.view1',
         'myApp.view2',
         'myApp.version',
-        'ng-currency'
+        'ng-currency',
+        'ngLoadingSpinner'
     ]).
         config(['$routeProvider', function ($routeProvider) {
             $routeProvider.otherwise({redirectTo: '/view1'});

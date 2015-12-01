@@ -1,3 +1,4 @@
+<span us-spinner="{radius:30, width:8, length: 16}"></span>
 <div style="width: 100%">
     <div class="col-md-6">
         <div class="colunas">
@@ -10,20 +11,20 @@
                         <span>Insert sale data</span>
                     </li>
 
-                    <!--<li style="width: 393px; cursor: hand;">-->
-                        <!--<a ng-click="v1Ctrl.edit()"><span>Use last created customer</span></a>-->
-                    <!--</li>-->
+                    <li style="width: 393px; cursor: pointer;">
+                        <a ng-click='v2Ctrl.loadCustomer()'><span>Use last created customer</span></a>
+                    </li>
 
 
                     <li>
                         <label for="amount">Value: </label>
                         <input id="amount" type="text"
-                               ng-model='v2Ctrl.sale.amount' ng-currency />
+                               ng-model='v2Ctrl.sale.amount' ng-currency/>
                     </li>
                     <li>
                         <label for="customerId">Customer Id </label>
                         <input id="customerId" type="text"
-                               ng-model='v2Ctrl.sale.ccId'/>
+                               ng-model='v2Ctrl.sale.customerId'/>
                     </li>
                     <li>
                         <label for="garageId">Garage Id: </label>
@@ -54,23 +55,52 @@
                             <label for="status">Status</label>
 
                             <p id="status" class="responsefields">{{v2Ctrl.response.status}}</p>
+
                             <label for="message">Message</label>
 
                             <p id="message" class="responsefields">{{v2Ctrl.response.message}}</p>
+
+                            <label for="transactionId">Transaction ID</label>
+
+                            <p id="transactionId" class="responsefields">{{v2Ctrl.response.transactionId}}</p>
+
                         </div>
                         <div class="col-md-6">
-                            <label for="ccId">Transaction ID</label>
+                            <label for="authNumber">Authorization number</label>
 
-                            <p id="ccId" class="responsefields">{{v2Ctrl.response.ccId}}</p>
-                            <label for="paymentToken">Payment token</label>
+                            <p id="authNumber" class="responsefields">{{v2Ctrl.response.authorizationNumber}}</p>
 
-                            <p
-                                    id="paymentToken" class="responsefields">{{v2Ctrl.response.paymentToken}}</p>
+                            <label for="lastFour">Last fourr</label>
+
+                            <p id="lastFour" class="responsefields">{{v2Ctrl.response.lastFour}}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-md-12" style="padding-left: 0px;">
+                            <h5>Credit card verification</h5>
+
+                            <div class="col-md-6">
+                                <label for="pCode">Processor code</label>
+
+                                <p id="pCode" class="responsefields">
+                                    {{v2Ctrl.response.ccverification.processorResponseCode}}</p>
+                                <label for="pMessage">Processor message</label>
+
+                                <p id="pMessage" class="responsefields">
+                                    {{v2Ctrl.response.ccverification.processorResponseText}}</p>
+
+                            </div>
+                            <div class="col-md-6">
+                                <label for="ccStatus">Status</label>
+
+                                <p id="ccStatus" class="responsefields">{{v2Ctrl.response.ccverification.status}}</p>
+
+                            </div>
+
                         </div>
                     </li>
                 </ul>
             </div>
-            <!-- here goes the hosted fields -->
         </div>
     </div>
 

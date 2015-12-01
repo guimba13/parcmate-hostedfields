@@ -15,12 +15,16 @@ angular.module('myApp.view2', ['ngRoute'])
         this.sale = {};
         var ctrl = this;
 
+        this.loadCustomer = function () {
+            ctrl.sale.customerId = localStorage.getItem("id");
+        };
+
         this.performSale = function () {
 
             $http.post(server + 'transaction/processPayment', ctrl.sale).success(function (response) {
-                ctrl.response = response.data;
-            }).error(function (error) {
                 ctrl.response = response;
+            }).error(function (error) {
+                ctrl.response = error;
             });
 
         };

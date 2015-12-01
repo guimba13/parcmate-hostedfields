@@ -13,6 +13,7 @@
     "html5-boilerplate": "~5.2.0",
     "bootstrap": "~3.3.5",
     "jquery": "jQuery#~2.1.4",
-    "braintree-web": "~2.16.1"
+    "braintree-web": "~2.16.1",
+    "angular-loading-spinner": "~0.0.3"
   }
 }

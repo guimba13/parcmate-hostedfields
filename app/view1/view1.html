@@ -10,11 +10,15 @@
                         <span>Insert cusomer information:</span>
                     </li>
                     
-                    <li style="width: 393px; cursor: hand;">
+                    <li style="width: 393px; cursor: pointer;">
                         <a ng-click="v1Ctrl.edit()"><span>Edit user</span></a>
                     </li>
 
                     <div ng-show="v1Ctrl.update" style="border: 1px solid #eee;position: relative;float: left;width: 396px;">
+                        <li style="width: 393px; height: 65px; cursor: pointer;">
+                            <label for="last">Edit last created customer: </label>
+                            <input style="width: 20px; margin-top: 10px;" id="last" type="checkbox" ng-model="v1Ctrl.lastUser"  ng-change="v1Ctrl.loadLast()"/>
+                        </li>
                         <li style="border-bottom: 1px solid #eee !important; width: inherit !important;">
                             <label for="id">Customer Id: </label><input id="id" type="text"
                                                                         ng-model='v1Ctrl.customer.ccId'/>
