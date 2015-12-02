@@ -221,3 +221,7 @@ button.submit:active {
     position: relative;
     float: left;
 }
+
+.log {
+    margin-top: 20px;
+}
