@@ -4,7 +4,7 @@ var server = "http://server.localhostsro.sk:9010/";
 
 
 (function () {
-    // Declare app level module which depends on views, and components
+    // Declare www level module which depends on views, and components
     angular.module('myApp', [
         'ngRoute',
         'myApp.customer',
