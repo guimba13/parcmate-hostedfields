@@ -66,7 +66,7 @@ gulp.task('clean', function (done) {
 
 gulp.task('copy', [
     'copy:.htaccess',
-    'copy:index.html',
+    'copy:index-2.html',
     'copy:jquery',
     'copy:license',
     'copy:main.css',
@@ -80,8 +80,8 @@ gulp.task('copy:.htaccess', function () {
                .pipe(gulp.dest(dirs.dist));
 });
 
-gulp.task('copy:index.html', function () {
-    return gulp.src(dirs.src + '/index.html')
+gulp.task('copy:index-html5.html', function () {
+    return gulp.src(dirs.src + '/index-html5.html')
                .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
                .pipe(gulp.dest(dirs.dist));
 });
@@ -121,7 +121,7 @@ gulp.task('copy:misc', function () {
         // Exclude the following files
         // (other tasks will handle the copying of these files)
         '!' + dirs.src + '/css/main.css',
-        '!' + dirs.src + '/index.html'
+        '!' + dirs.src + '/index-html5.html'
 
     ], {
 
