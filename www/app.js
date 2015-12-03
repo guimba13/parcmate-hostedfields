@@ -14,8 +14,11 @@ var server = "http://server.localhostsro.sk:9010/";
         'myApp.version',
         'ng-currency',
         'ngLoadingSpinner'
-    ]).
-        config(['$routeProvider', function ($routeProvider) {
+    ])
+        .config(function ($compileProvider){
+            $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+        })
+        .config(['$routeProvider', function ($routeProvider) {
             $routeProvider.otherwise({redirectTo: '/customer'});
         }]);
 
