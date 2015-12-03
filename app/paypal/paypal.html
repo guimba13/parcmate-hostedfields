@@ -1,0 +1,110 @@
+<span us-spinner="{radius:30, width:8, length: 16}"></span>
+<div style="width: 100%">
+    <div class="col-md-6">
+        <div class="colunas">
+
+            <h2>Create customer</h2>
+
+            <form class="customer_form" id="paypalform">
+                <ul>
+                    <li>
+                        <span>Insert cusomer information:</span>
+                    </li>
+
+                    <li style="width: 393px; cursor: pointer;">
+                    <a ng-click="ppCtrl.edit()"><span>Edit user</span></a>
+                    </li>
+
+                    <div ng-show="ppCtrl.update" style="border: 1px solid #eee;position: relative;float: left;width: 396px;">
+                    <li style="width: 393px; height: 65px; cursor: pointer;">
+                    <label for="last">Edit last created customer: </label>
+                    <input style="width: 20px; margin-top: 10px;" id="last" type="checkbox" ng-model="ppCtrl.lastUser"  ng-change="ppCtrl.loadLast()"/>
+                    </li>
+                    <li style="border-bottom: 1px solid #eee !important; width: inherit !important;">
+                    <label for="id">Customer Id: </label><input id="id" type="text"
+                    ng-model='ppCtrl.customer.ccId'/>
+                    </li>
+                    <li>
+                    <label for="pToken">Payment Token: </label><input id="pToken" type="text"
+                    ng-model='ppCtrl.customer.paymentToken'/>
+                    </li>
+                    </div>
+
+                    <li>
+                        <label for="name">Name: </label><input id="name" type="text" ng-model='ppCtrl.customer.name'/>
+                    </li>
+
+
+                    <!-- here goes the hosted fields -->
+                    <li>
+                        <div id="paypal-container"></div>
+                    </li>
+
+                    <!--<li style="width: 393px;">-->
+                    <!--<button type="submit">Save customer</button>-->
+                    <!--</li>-->
+                </ul>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+        <div class="colunas">
+            <h2>Customer response</h2>
+
+            <div class="customer_form">
+                <ul>
+                    <li>
+                        <span>Response:</span>
+                    </li>
+                    <li>
+                        <div class="col-md-6">
+                            <label for="status">Status</label>
+
+                            <p id="status" class="responsefields">{{ppCtrl.response.status}}</p>
+                            <label for="message">Message</label>
+
+                            <p id="message" class="responsefields">{{ppCtrl.response.message}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ccId">Customer ID</label>
+
+                            <p id="ccId" class="responsefields">{{ppCtrl.response.ccId}}</p>
+                            <label for="paymentToken">Payment token</label>
+
+                            <p
+                                    id="paymentToken" class="responsefields">{{ppCtrl.response.paymentToken}}</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <h5>Retrieved billing address:</h5>
+                    </li>
+                    <li>
+                        <div class="col-md-6">
+                            <label for="street">Street address</label>
+
+                            <p id="street" class="responsefields">{{ppCtrl.billingAddress.streetAddress}}</p>
+
+                            <label for="city">City</label>
+
+                            <p id="city" class="responsefields">{{ppCtrl.billingAddress.locality}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ccId">Postal code</label>
+
+                            <p id="postal" class="responsefields">{{ppCtrl.billingAddress.postalCode}}</p>
+
+                            <label for="country">Country code</label>
+
+                            <p id="country" class="responsefields">{{ppCtrl.billingAddress.countryCodeAlpha2}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- here goes the hosted fields -->
+        </div>
+    </div>
+
+</div>

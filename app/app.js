@@ -7,15 +7,16 @@ var server = "http://server.localhostsro.sk:9010/";
     // Declare app level module which depends on views, and components
     angular.module('myApp', [
         'ngRoute',
-        'myApp.view1',
-        'myApp.view2',
-        'myApp.view3',
+        'myApp.customer',
+        'myApp.sale',
+        'myApp.logs',
+        'myApp.paypal',
         'myApp.version',
         'ng-currency',
         'ngLoadingSpinner'
     ]).
         config(['$routeProvider', function ($routeProvider) {
-            $routeProvider.otherwise({redirectTo: '/view1'});
+            $routeProvider.otherwise({redirectTo: '/customer'});
         }]);
 
 }());

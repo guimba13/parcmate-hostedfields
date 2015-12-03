@@ -3,11 +3,11 @@
 var ctrl;
 var http;
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.customer', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/view1', {
-            templateUrl: 'view1/view1.html',
+        $routeProvider.when('/customer', {
+            templateUrl: 'customer/customer.html',
             controller: 'View1Ctrl',
             controllerAs: 'v1Ctrl'
         });
@@ -42,6 +42,7 @@ angular.module('myApp.view1', ['ngRoute'])
             ctrl.response = {};
             ctrl.customer.payment_method_nonce = payload.nonce;
             if (ctrl.update) {
+                ctrl.customer.type = 'CARD';
                 http.post(server + 'customer/updateCustomer', ctrl.customer).success(function (response) {
                     ctrl.response = response;
                     localStorage.setItem('id', response.ccId);

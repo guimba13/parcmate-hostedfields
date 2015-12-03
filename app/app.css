@@ -212,16 +212,21 @@ button.submit:active {
 .colunas {
     margin: 0 20%;
     float: left;
+    width: 50%;
 
 }
 
 .responsefields{
     margin-top: 5px;
-    padding-left: 5px;
     position: relative;
     float: left;
 }
 
 .log {
     margin-top: 20px;
+}
+
+#paypal-container {
+    width: 295px;
+    margin: 0 50%;
 }
