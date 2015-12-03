@@ -7,9 +7,9 @@ var app = {
     },
 
     onDeviceReady: function() {
-        angular.element(document).ready(function() {
-            angular.bootstrap(document);
-        });
+        //angular.element(document).ready(function() {
+        //    angular.bootstrap(document);
+        //});
     }
 };
 
