@@ -3,7 +3,7 @@ angular.module('myApp.paypal', ['ngRoute', 'ngSanitize'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/paypal', {
-            templateUrl: '../paypal/paypal.html',
+            templateUrl: 'paypal/paypal.html',
             controller: 'PayPalCtrl',
             controllerAs: 'ppCtrl'
         });
