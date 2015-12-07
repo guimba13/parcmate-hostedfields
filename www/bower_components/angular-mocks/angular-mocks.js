@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.4.7
+ * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -1809,7 +1809,7 @@ angular.mock.$RAFDecorator = ['$delegate', function($delegate) {
  */
 angular.mock.$RootElementProvider = function() {
   this.$get = function() {
-    return angular.element('<div ng-www></div>');
+    return angular.element('<div ng-app></div>');
   };
 };
 
@@ -1977,7 +1977,7 @@ angular.module('ngMockE2E', ['ng']).config(['$provide', function($provide) {
  *   });
  * ```
  *
- * Afterwards, bootstrap your www with this new module.
+ * Afterwards, bootstrap your app with this new module.
  */
 
 /**
@@ -2278,8 +2278,9 @@ if (window.jasmine || window.mocha) {
    * @param {...(string|Function|Object)} fns any number of modules which are represented as string
    *        aliases or as anonymous module initialization functions. The modules are used to
    *        configure the injector. The 'ng' and 'ngMock' modules are automatically loaded. If an
-   *        object literal is passed they will be registered as values in the module, the key being
-   *        the module name and the value being what is returned.
+   *        object literal is passed each key-value pair will be registered on the module via
+   *        {@link auto.$provide $provide}.value, the key being the string name (or token) to associate
+   *        with the value on the injector.
    */
   window.module = angular.mock.module = function() {
     var moduleFns = Array.prototype.slice.call(arguments, 0);
@@ -2355,7 +2356,7 @@ if (window.jasmine || window.mocha) {
    * ```js
    *
    *   angular.module('myApplicationModule', [])
-   *       .value('mode', 'www')
+   *       .value('mode', 'app')
    *       .value('version', 'v1.0.1');
    *
    *
@@ -2369,7 +2370,7 @@ if (window.jasmine || window.mocha) {
    *     // inject() is used to inject arguments of all given functions
    *     it('should provide a version', inject(function(mode, version) {
    *       expect(version).toEqual('v1.0.1');
-   *       expect(mode).toEqual('www');
+   *       expect(mode).toEqual('app');
    *     }));
    *
    *
