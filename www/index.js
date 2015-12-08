@@ -7,6 +7,7 @@ var app = {
     },
 
     onDeviceReady: function() {
+        window.open = cordova.InAppBrowser.open;
         //angular.element(document).ready(function() {
         //    angular.bootstrap(document);
         //});
