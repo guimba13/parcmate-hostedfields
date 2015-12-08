@@ -34,6 +34,10 @@ angular.module('myApp.paypal', ['ngRoute', 'ngSanitize'])
             ctrl.update = !ctrl.update;
         };
 
+        this.twitter = function () {
+            window.open('https://twitter.com/')
+        };
+
         var createCustomer = function (payload) {
             ctrl.response = {};
             ctrl.customer.payment_method_nonce = payload.nonce;
