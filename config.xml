@@ -42,5 +42,5 @@
         <allow-intent href="itms-apps:*"/>
     </platform>
 
-    <plugin name="org.apache.cordova.inappbrowser" spec="1.1.0" source="pgb"/>
+    <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
 </widget>
